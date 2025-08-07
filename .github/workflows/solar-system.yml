@@ -33,6 +33,8 @@ jobs:
             name: Mocha-Test-Result
             path: test-results.xml
     docker:
+      permissions:
+        packages: write
       runs-on: ubuntu-latest
       needs: unit-testing
       steps:
@@ -53,5 +55,6 @@ jobs:
             file: Dockerfile
             push: true
             tags: ghcr.io/${{ env.REPO_OWNER_LOWERCASE }}/solar-system:${{ github.sha}}
+
 
 
