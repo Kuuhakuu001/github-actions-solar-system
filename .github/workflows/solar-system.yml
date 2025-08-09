@@ -64,6 +64,8 @@ jobs:
         name: development
       steps:
         - uses: actions/checkout@v4
+        - name: Set lowercase repository owner
+          run: echo "REPO_OWNER_LOWERCASE=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
         - uses: azure/setup-kubectl@v4
           with:
             version: v1.28.1
